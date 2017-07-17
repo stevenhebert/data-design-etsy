@@ -104,7 +104,7 @@
 
 
 
-			<h1>relations</h1>
+			<h1>Relations</h1>
 			<ul>
 				<li>profileId can have (1) name</li>
 				<li>profileId can have (1) email</li>
@@ -113,7 +113,6 @@
 				<li>profileId can have (1) joinDate</li>
 				<li>profileId can have (n) storeProfileId</li>
 				<li>profileId can have (n) itemProfileId</li>
-
 
 				<li>storeId can have (1) storeName</li>
 				<li>storeId can have (1) aboutStore</li>
