@@ -15,7 +15,6 @@
 
 
 			<h1>Persona:</h1>
-
 			<h2>Profession</h2> Seller profile for producer of hair-ables <em>"hair-wearables"</em> made from donated canine
 			trimmings. this unique individual is is an ethical purveyor of cosmetic and beauty-enhancing items. seller is
 			adamant about conveying this information to buyers.
@@ -43,18 +42,15 @@
 
 			<h1>Use Case:</h1> A number of buyers have sent payments for the sellers items. A handful of potential buyers
 			have inquired about the specifics regarding the sellers items.
-
 			The seller prepares her orders for pickup by USPS. After packaging the items she updates the status of her
 			orders and uploads tracking information for the buyers. She then responds to her inquiries and checks her
 			inventory.
-
 			While out shopping at hobby lobby she sell a couple more items. Her receives this notification via the etsy
 			mobile application and restocks her supplies.
 
 
 
 			<h1>Interaction Flow:</h1>
-
 			<h2>Profile Creation</h2> Site patron clicks "register" -> JS creates pop-up dialog askign for users
 			information -> user fills in personal information manually or by linking social media profile -> user chooses
 			username and password (username must be valid, appropriate, and unqiue) then is directed to profile home ->
@@ -78,7 +74,6 @@
 
 
 			<h1>Conceptual Model:</h1>
-
 			<h2>Entities & Attributes</h2>
 
 			<ul>userProfile
@@ -106,6 +101,10 @@
 				<li>itemId</li>
 				<li>itemProfileId(foreignKey)</li>
 			</ul>
+
+
+
+			<h1>relations</h1>
 
 
 
