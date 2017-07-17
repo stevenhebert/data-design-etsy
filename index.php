@@ -79,35 +79,36 @@
 
 			<h1>Conceptual Model:</h1>
 
-			<h2>(Entities) & Attributes</h2>
+			<h2>Entities & Attributes</h2>
 
-			<ul>(userProfile)
-				<li>firstName</li>
-				<li>lastName</li>
+			<ul>userProfile
+				<li>name</li>
 				<li>email</li>
-				<li>password</li>
-				<li>username</li>
+				<li>hash</li>
+				<li>salt</li>
 				<li>joinDate</li>
-				<li>location</li>
-				<li>avatar</li>
+				<li>profileId</li>
 			</ul>
 
-			<ul>(userStore)
+			<ul>userStore
 				<li>storeName</li>
 				<li>aboutStore</li>
 				<li>buyerReviews</li>
 				<li>terms</li>
+				<li>storeId</li>
+				<li>storeProfileId(foreignKey)</li>
 			</ul>
 
-			<ul>(sellerItems)
-				<li>(price, itemDescription, paymentMethod, photos, tags)</li>li>
+			<ul>sellerItems
+				<li>price</li>
+				<li>itemDescription</li>
+				<li>tags</li>
+				<li>itemId</li>
+				<li>itemProfileId(foreignKey)</li>
 			</ul>
 
-			<h2>Relations</h2>
-			<ul>
-				<li>(1)profile->(n)sellerStores</li>
-				<li>(1)sellerStore->(n)sellerItems</li>
-			</ul>
+
+
 
 
 
