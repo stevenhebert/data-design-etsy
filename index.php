@@ -73,14 +73,12 @@
 				<li>profile</li>
 				<li>sellerStore</li>
 				<li>sellerItems</li>
-				<li>itemDetails</li>
 			</ul>
 
 			<h2>Relations</h2>
 			<ul>
+				<li>(1)profile->(n)sellerStores</li>
 				<li>(1)sellerStore->(n)sellerItems</li>
-				<li>(1)profile->(n)sellerStore</li>
-				<li></li>(1)itemDetails->sellerItems
 			</ul>
 
 
