@@ -79,10 +79,10 @@
 			<ul>userProfile
 				<li>name</li>
 				<li>email</li>
-				<li>hash</li>
-				<li>salt</li>
+				<li>hash(for password)</li>
+				<li>salt(for password)</li>
 				<li>joinDate</li>
-				<li>profileId</li>
+				<li>profileId(primaryKey)</li>
 			</ul>
 
 			<ul>userStore
@@ -94,7 +94,7 @@
 				<li>storeProfileId(foreignKey)</li>
 			</ul>
 
-			<ul>sellerItems
+			<ul>storeItems
 				<li>price</li>
 				<li>itemDescription</li>
 				<li>tags</li>
@@ -105,11 +105,27 @@
 
 
 			<h1>relations</h1>
+			<ul>
+				<li>profileId can have (1) name</li>
+				<li>profileId can have (1) email</li>
+				<li>profileId can have (1) hash</li>
+				<li>profileId can have (1) salt</li>
+				<li>profileId can have (1) joinDate</li>
+				<li>profileId can have (n) storeProfileId</li>
+				<li>profileId can have (n) itemProfileId</li>
 
 
+				<li>storeId can have (1) storeName</li>
+				<li>storeId can have (1) aboutStore</li>
+				<li>storeId can have (n) buyerReviews</li>
+				<li>storeId can have (1) terms</li>
+				<li>storeId can have (1) storeProfileId</li>
 
-
-
+				<li>itemProfileId can have (1) price</li>
+				<li>itemProfileId can have (1) itemDescription</li>
+				<li>itemProfileId can have (n) tags</li>
+				<li>itemProfileId can have (1) itemId</li>
+			</ul>
 
 
 
