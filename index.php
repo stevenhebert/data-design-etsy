@@ -55,23 +55,35 @@
 
 			<h1>Interaction Flow:</h1>
 
-			<h2>Profile Creation</h2> Seller must first register a profile; the individual may use a linked service
-			that can provide registration information.
+			<h2>Profile Creation</h2> Seller first registers a profile; the individual is given an options to use a linked
+			service that can provide registration information.
 
-			<h2>Shop Creation:</h2> Seller chooses a shop name.
+			<h2>Shop Creation</h2> Seller chooses a shop name, interface confirms/rejects name.
 
-			<h2>item listing</h2> After the shop is established, the interface provides fields for
+			<h2>Item Listing</h2> After the shop is established, the interface provides fields for
 			the seller to specify item category, search tags, item description, production process/materials,
 			provide photos, list quantity offered, customization, shipping and return policies.
 
 
 
 			<h1>Conceptual Model:</h1>
+
+			<h2>Entities & Attributes</h2>
 			<ul>
+				<li>profile</li>
+				<li>sellerStore</li>
+				<li>sellerItems</li>
 				<li></li>
+			</ul>
+
+			<h2>Relations</h2>
+			<ul>
+				<li>(1)sellerStore->(n)sellerItems</li>
 				<li></li>
 				<li></li>
 			</ul>
+
+
 
 		</body>
 </html>
