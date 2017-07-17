@@ -110,8 +110,6 @@
 				<li>(1) profileId can have (n) itemProfileId</li>
 			</ul>
 
-
-
 		</body>
 </html>
 
