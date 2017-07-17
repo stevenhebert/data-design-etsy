@@ -12,6 +12,8 @@
 			is to establish a retail-home catered to the craft enthusiast. The typical seller is not soley interested in
 			profit, nor is the typical buyer necessarily interested in the best value.
 
+
+
 			<h1>persona</h1>
 
 			<h2>profession</h2> Seller profile for producer of hair-ables <em>"hair-wearables"</em> made from donated canine
@@ -31,28 +33,38 @@
 			and return policies. The platform should be accessible to an international audience, accept a variety of
 			payment options, as well as provide performance metrics.
 
-			<h2>goals</h2> The seller needs incentive to choose this site over competing platforms (e.g., eBay, Amazon).
-			She needs a retail venue oriented customized, one-off goods, not mass-produced goods. This should be the first
-			destination both sellers and buyers think of when searching for these types of crafts and services.
+			<h2>goals</h2> The seller needs an incentive to choose this site over competing platforms (e.g., eBay, Amazon).
+			She needs a retail venue oriented towards custom, one-off goods, not mass-produced goods. This should be the
+			first destination both buyers and sellers think of for this type of item.
+
+			<h2>user story</h2> As a retailer, I need a no-hassle experience to market my goods to an international audience.
+
+
+
+			<h1>use case:</h1> A number of buyers have sent payments for the sellers items. A handful of potential buyers
+			have inquired about the specifics regarding the sellers items.
+
+			The seller prepares her orders for pickup by USPS. After packaging the items she updates the status of her
+			orders and uploads tracking information for the buyers. She then responds to her inquiries and checks her
+			inventory.
+
+			While out shopping at hobby lobby she sell a couple more items. Her receives this notification via the etsy
+			mobile application and restocks her supplies.
+
+
+
+			<h1>interaction flow</h1>
 
 			<h2>profile creation</h2> Seller must first register a profile; the individual may use a linked service
 			that can provide registration information.
-			<h2>shop creation:</h2> Seller chooses a shop name. Once the shop is established interfae provides fields for
-			the seller to specify item category, search tags, describe the item, production process/materials,
-			provide photos, list quantity offered, customization options, shipping and return policies.
+
+			<h2>shop creation</h2> Seller chooses a shop name.
+
+			<h2>item listing</h2> After the shop is established, the interface provides fields for
+			the seller to specify item category, search tags, item description, production process/materials,
+			provide photos, list quantity offered, customization, shipping and return policies.
 
 
-			<h1>use case:</h1> The seller has exhausted her local audience and desires to expand her sales through
-			international exposure. The seller desires to in a niche industry and is una. the ideal platform offers sellers a simplistic interface focused
-			on the sellers business needs. the user experience should be easy to navigate and provide a range of
-			customization options; tips and guides should be visable but non-intrusive.
-
-			<h1>interaction flow</h1>
-			<ul>
-				<li></li>
-				<li></li>
-				<li></li>
-			</ul>
 
 			<h1>conceptual model</h1>
 			<ul>
