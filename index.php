@@ -79,8 +79,8 @@
 			<h2>Relations</h2>
 			<ul>
 				<li>(1)sellerStore->(n)sellerItems</li>
-				<li></li>
-				<li></li>
+				<li>(1)profile->(n)sellerStore</li>
+				<li></li>(1)itemDetails->sellerItems
 			</ul>
 
 
