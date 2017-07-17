@@ -73,7 +73,7 @@
 				<li>profile</li>
 				<li>sellerStore</li>
 				<li>sellerItems</li>
-				<li></li>
+				<li>itemDetails</li>
 			</ul>
 
 			<h2>Relations</h2>
