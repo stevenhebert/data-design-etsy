@@ -55,12 +55,17 @@
 
 			<h1>Interaction Flow:</h1>
 
-			<h2>Profile Creation</h2> Seller first registers a profile; the individual is given an options to use a linked
-			service that can provide registration information.
+			<h2>Profile Creation</h2> New site patron clicks "register" -> Site directs user to registration page ->
+			seller fills personal information manual or by linking social media -> individual chooses username and is
+			redirected to profile home -> user is presented with additional options to personalize their profile.
 
-			<h2>Shop Creation</h2> Seller chooses a shop name, interface confirms/rejects name.
+			<h2>Shop Creation</h2> Registered user clicks create shop -> directed to shop registration page -> registered
+			user is prompted to choose a shop name, depending on appropriateness and existing shop names, name is confirmed
+			or rejected -> after establishing shop name user is redirected to shop home page -> analogously to profile
+			personalization, user can personalize shop -> registered seller fills in store policies (shipping, payment,
+			returns, etc) -> seller is ready to list her products.
 
-			<h2>Item Listing</h2> After the shop is established, the interface provides fields for
+			<h2>Item Listing</h2> After establishing her shop user can list items ->  website provides fields for
 			the seller to specify item category, search tags, item description, production process/materials,
 			provide photos, list quantity offered, customization, shipping and return policies.
 
@@ -68,11 +73,11 @@
 
 			<h1>Conceptual Model:</h1>
 
-			<h2>Entities & Attributes</h2>
+			<h2>Entities & (Attributes)</h2>
 			<ul>
-				<li>profile</li>
-				<li>sellerStore</li>
-				<li>sellerItems</li>
+				<li>profile (name, password, email, join date, location, avatar)</li>
+				<li>sellerStore (storeName, storeDescription, items, buyerReviews, terms)</li>
+				<li>sellerItems (price, itemDescription, paymentMethod, photos, tags)</li>
 			</ul>
 
 			<h2>Relations</h2>
@@ -80,6 +85,8 @@
 				<li>(1)profile->(n)sellerStores</li>
 				<li>(1)sellerStore->(n)sellerItems</li>
 			</ul>
+
+
 
 
 
