@@ -56,8 +56,8 @@
 			<h1>Interaction Flow:</h1>
 
 			<h2>Profile Creation</h2> New site patron clicks "register" -> Site directs user to registration page ->
-			seller fills personal information manual or by linking social media -> individual chooses username and is
-			redirected to profile home -> user is presented with additional options to personalize their profile.
+			seller fills personal information manual or by linking social media -> individual chooses username and password
+			then is redirected to profile home -> user is presented with additional options to personalize their profile.
 
 			<h2>Shop Creation</h2> Registered user clicks create shop -> directed to shop registration page -> registered
 			user is prompted to choose a shop name, depending on appropriateness and existing shop names, name is confirmed
@@ -65,9 +65,11 @@
 			personalization, user can personalize shop -> registered seller fills in store policies (shipping, payment,
 			returns, etc) -> seller is ready to list her products.
 
-			<h2>Item Listing</h2> After establishing her shop user can list items ->  website provides fields for
-			the seller to specify item category, search tags, item description, production process/materials,
-			provide photos, list quantity offered, customization, shipping and return policies.
+			<h2>Item Listing</h2> After shop is established user lists items -> clicks add listing -> redirected
+			product information page -> seller is provided fields to specify item title, upload photos, describe the item,
+			item category, renewal options, item type, item description, section, tags, materials, price, quantity,
+			customization, list quantity available, customizations, shipping and return policies and cost -> user may then
+			preview the listing, or submit the finalized listing.
 
 
 
