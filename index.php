@@ -55,17 +55,21 @@
 
 			<h1>Interaction Flow:</h1>
 
-			<h2>Profile Creation</h2> New site patron clicks "register" -> Site directs user to registration page ->
-			seller fills personal information manual or by linking social media -> individual chooses username and password
-			then is redirected to profile home -> user is presented with additional options to personalize their profile.
+			<h2>Profile Creation</h2> Site patron clicks "register" -> JS creates pop-up dialog askign for users
+			information -> user fills in personal information manually or by linking social media profile -> user chooses
+			username and password (username must be valid, appropriate, and unqiue) then is directed to profile home ->
+			user presented with additional options to personalize their profile, fill in payment info, shipping address,
+			etc.
 
-			<h2>Shop Creation</h2> Registered user clicks create shop -> directed to shop registration page -> registered
-			user is prompted to choose a shop name, depending on appropriateness and existing shop names, name is confirmed
-			or rejected -> after establishing shop name user is redirected to shop home page -> analogously to profile
-			personalization, user can personalize shop -> registered seller fills in store policies (shipping, payment,
-			returns, etc) -> seller is ready to list her products.
+			<h2>Shop Creation</h2> Registered user clicks "sell on Etsy" -> directed informational page regarding incentives
+			of selling on Etsy -> moves forward by clicking "open shop" - redirected to registration page -> user is then
+			prompted to choose a default language, specify shop locality, specify shop currency, and specify their retailing
+			intentions -> user moves forward by submitting changes and is then directed to a page where she can specify her
+			desired shop name; depending on appropriateness and existing shop names, name is confirmed or rejected -> after
+			shop name is approved Etsy establishes the users shop -> is redirects user to their shops home page -> user can
+			now begin to list items in shop.
 
-			<h2>Item Listing</h2> After shop is established user lists items -> clicks add listing -> redirected
+			<h2>Item Listing</h2> After shop is established user lists items -> clicks "add a listing" -> redirected to
 			product information page -> seller is provided fields to specify item title, upload photos, describe the item,
 			item category, renewal options, item type, item description, section, tags, materials, price, quantity,
 			customization, list quantity available, customizations, shipping and return policies and cost -> user may then
@@ -77,7 +81,7 @@
 
 			<h2>Entities & (Attributes)</h2>
 			<ul>
-				<li>profile (name, password, email, join date, location, avatar)</li>
+				<li>profile (firstName, lastName, email, password, username, joinDate, location, avatar)</li>
 				<li>sellerStore (storeName, storeDescription, items, buyerReviews, terms)</li>
 				<li>sellerItems (price, itemDescription, paymentMethod, photos, tags)</li>
 			</ul>
