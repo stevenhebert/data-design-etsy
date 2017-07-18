@@ -110,6 +110,8 @@
 				<li>(1) profileId can have (n) itemProfileId</li>
 			</ul>
 
+			<h1>ERD</h1>
+			<img src="data-design-etsy/ERD.jpg" alt="ERD diagram">
 		</body>
 </html>
 
