@@ -111,7 +111,7 @@
 			</ul>
 
 			<h1>ERD</h1>
-			<img src="ERD.jpg" alt="ERD diagram">
+			<img src="https://bootcamp-coders.cnm.edu/~shebert2/data-design-etsy/images/ERD.jpg" alt="ERD diagram">
 		</body>
 </html>
 
