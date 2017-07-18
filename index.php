@@ -111,7 +111,7 @@
 			</ul>
 
 			<h1>ERD</h1>
-			<img src="data-design-etsy/ERD.jpg" alt="ERD diagram">
+			<img src="ERD.jpg" alt="ERD diagram">
 		</body>
 </html>
 
