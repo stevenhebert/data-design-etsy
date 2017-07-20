@@ -85,15 +85,6 @@
 				<li>profileId(primaryKey)</li>
 			</ul>
 
-			<ul>userStore
-				<li>storeName</li>
-				<li>aboutStore</li>
-				<li>buyerReviews</li>
-				<li>terms</li>
-				<li>storeId</li>
-				<li>storeProfileId(foreignKey)</li>
-			</ul>
-
 			<ul>storeItems
 				<li>price</li>
 				<li>itemDescription</li>
@@ -101,8 +92,6 @@
 				<li>itemId</li>
 				<li>itemProfileId(foreignKey)</li>
 			</ul>
-
-
 
 			<h1>Relations</h1>
 			<ul>
