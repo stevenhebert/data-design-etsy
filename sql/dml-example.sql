@@ -10,7 +10,7 @@ DROP TABLE IF EXISTS userProfile;
 CREATE TABLE userProfile(
 	profileId INT UNSIGNED AUTO_INCREMENT NOT NULL,
 	name VARCHAR(500) NOT NULL,
-	email VARCHAR (128)) NOT NULL,
+	email VARCHAR (128) NOT NULL,
 	hash CHAR(128) NOT NULL,
 	salt CHAR(64) NOT NULL,
 	joinDate DATETIME(6) NOT NULL,
@@ -27,7 +27,7 @@ CREATE TABLE storeItems(
 	-- primary key sans auto_inc, used for foreign key --
 	itemProfileId INT UNSIGNED NOT NULL,
 	-- attributes --
-	price DECIMAL(19,4),
+	price DECIMAL(19,4) NOT NULL,
 	itemDes VARCHAR(500) NOT NULL,
 	tags INT UNSIGNED NOT NULL,
 	-- create index for foreign key --
@@ -35,7 +35,7 @@ CREATE TABLE storeItems(
 	-- declare foreign key --
 	FOREIGN KEY(itemProfileId) REFERENCES profile(profileId)
 	-- declare primary key --
-		PRIMARY KEY(itemId)
+	PRIMARY KEY(itemId)
 );
 
 SET FOREIGN_KEY_CHECKS=1;
