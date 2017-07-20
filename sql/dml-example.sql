@@ -1,3 +1,10 @@
+-- reset --
+-- must drop in reverse order --
+SET FOREIGN_KEY_CHECKS=0;
+DROP TABLE IF EXISTS storeItems;
+DROP TABLE IF EXISTS userProfile;
+
+
 -- create profile entity --
 
 CREATE TABLE userProfile(
@@ -31,4 +38,5 @@ CREATE TABLE storeItems(
 		PRIMARY KEY(itemId)
 );
 
+SET FOREIGN_KEY_CHECKS=1;
 
