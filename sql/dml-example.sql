@@ -15,8 +15,8 @@ CREATE TABLE userProfile(
 	salt CHAR(64) NOT NULL,
 	joinDate DATETIME(6) NOT NULL,
 	UNIQUE(email)
-	-- declare primary key --
-	PRIMARY KEY(profileId)
+		-- declare primary key --
+		PRIMARY KEY(profileId)
 );
 
 
@@ -32,8 +32,8 @@ CREATE TABLE storeItems(
 	tags INT UNSIGNED NOT NULL,
 	-- create index for foreign key --
 	INDEX(itemProfileId)
-	-- declare foreign key --
-	FOREIGN KEY(itemProfileId) REFERENCES profile(profileId)
+		-- declare foreign key --
+		FOREIGN KEY(itemProfileId) REFERENCES profile(profileId)
 	-- declare primary key --
 	PRIMARY KEY(itemId)
 );
