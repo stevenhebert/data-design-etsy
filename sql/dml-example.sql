@@ -38,5 +38,5 @@ VALUES(4, price, 'item description', tags);
 -- delete a users bloody profile --
 
 
-DELETE profile
+DELETE profile 
 

@@ -1,42 +1,46 @@
--- reset --
--- must drop in reverse order --
-SET FOREIGN_KEY_CHECKS=0;
-DROP TABLE IF EXISTS storeItems;
-DROP TABLE IF EXISTS userProfile;
+DROP TABLE IF EXISTS item;
+DROP TABLE IF EXISTS profile;
 
 
--- create profile entity --
+-- create profile entity
 
-CREATE TABLE userProfile(
+
+create TABLE PROFILE(
 	profileId INT UNSIGNED AUTO_INCREMENT NOT NULL,
-	name VARCHAR(500) NOT NULL,
-	email VARCHAR (128) NOT NULL,
-	UNIQUE(email)
-		hash CHAR(128) NOT NULL,
-	salt CHAR(64) NOT NULL,
-	joinDate DATETIME(6) NOT NULL,
-	-- declare primary key --
+
+	profileName VARCHAR(500) NOT NULL,
+	profileEmail VARCHAR(128) NOT NULL
+	UNIQUE(profileEmail),
+
+	profileHash CHAR(128) NOT NULL,
+	profileSalt CHAR(64) NOT NULL,
+	profileJoinDate DATETIME(6) NOT NULL,
+
+-- this officiates the primary key for the entity
 	PRIMARY KEY(profileId)
+	
 );
 
 
--- create items entity --
+-- create items entity
 
-CREATE TABLE storeItems(
-	itemId INT UNSIGNED AUTO_INCREMENT NOT NULL,
-	-- primary key sans auto_inc, used for foreign key --
-	itemProfileId INT UNSIGNED NOT NULL,
-	-- attributes --
-	price DECIMAL(19,4) NOT NULL,
-	itemDes VARCHAR(500) NOT NULL,
-	tags INT UNSIGNED NOT NULL,
-	-- create index for foreign key --
-	INDEX(itemProfileId)
-		-- declare foreign key --
-		FOREIGN KEY(itemProfileId) REFERENCES profile(profileId)
-	-- declare primary key --
-	PRIMARY KEY(itemId)
+
+CREATE TABLE items(
+	itemsId INT UNSIGNED AUTO_INCREMENT NOT NULL,
+
+-- primary key sans auto_inc, to be used for foreign key
+	itemsProfileId INT UNSIGNED NOT NULL,
+-- create index for foreign key
+	INDEX(itemsProfileId),
+
+-- attributes
+	itemsPrice DECIMAL(19,4) NOT NULL,
+	itemsDes VARCHAR(500) NOT NULL,
+
+-- declare primary key
+	PRIMARY KEY(itemsId),
+	
+-- declare foreign key
+	FOREIGN KEY(itemsProfileId) REFERENCES profile(profileId)
+
 );
-
-SET FOREIGN_KEY_CHECKS=1;
-
