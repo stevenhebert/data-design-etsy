@@ -1,3 +1,7 @@
+DROP TABLE IF EXISTS item;
+DROP TABLE IF EXISTS profile;
+
+
 -- create profile entity
 	CREATE TABLE profile(
 		profileId INT UNSIGNED AUTO_INCREMENT NOT NULL,
@@ -19,6 +23,7 @@
 -- create index for foreign key
 		INDEX(itemProfileId),
 -- attributes
+		itemName VARCHAR(128) NOT NULL,
 		itemPrice DECIMAL(19,4) NOT NULL,
 		itemDes VARCHAR(500) NOT NULL,
 -- declare foreign key
