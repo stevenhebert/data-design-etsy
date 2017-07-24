@@ -1,46 +1,35 @@
-DROP TABLE IF EXISTS item;
-DROP TABLE IF EXISTS profile;
+	DROP TABLE IF EXISTS items;
+	DROP TABLE IF EXISTS profile;
 
 
--- create profile entity
-
-
-create TABLE PROFILE(
-	profileId INT UNSIGNED AUTO_INCREMENT NOT NULL,
-
-	profileName VARCHAR(500) NOT NULL,
-	profileEmail VARCHAR(128) NOT NULL
-	UNIQUE(profileEmail),
-
-	profileHash CHAR(128) NOT NULL,
-	profileSalt CHAR(64) NOT NULL,
-	profileJoinDate DATETIME(6) NOT NULL,
+--  create profile entity
+	CREATETABLE profile(
+		profileId INT UNSIGNED AUTO_INCREMENT NOT NULL,
+		profileName VARCHAR(500) NOT NULL,
+		profileEmail VARCHAR(128) NOT NULL UNIQUE (profileEmail),
+		profileHash CHAR(128) NOT NULL,
+		profileSalt CHAR(64) NOT NULL,
+		profileJoinDate DATETIME(6) NOT NULL,
 
 -- this officiates the primary key for the entity
-	PRIMARY KEY(profileId)
-	
+		PRIMARY (profileId)
+
 );
 
 
 -- create items entity
-
-
-CREATE TABLE items(
-	itemsId INT UNSIGNED AUTO_INCREMENT NOT NULL,
-
+	CREATETABLE items(
+		itemId INT UNSIGNED AUTO_INCREMENT NOT NULL,
 -- primary key sans auto_inc, to be used for foreign key
-	itemsProfileId INT UNSIGNED NOT NULL,
+		itemProfileId INT UNSIGNED NOT NULL,
 -- create index for foreign key
-	INDEX(itemsProfileId),
-
+		INDEX(itemProfileId),
 -- attributes
-	itemsPrice DECIMAL(19,4) NOT NULL,
-	itemsDes VARCHAR(500) NOT NULL,
-
+		itemPrice DECIMAL(19,4) NOT NULL,
+		itemDes VARCHAR(500) NOT NULL,
 -- declare primary key
-	PRIMARY KEY(itemsId),
-	
+		PRIMARY (itemId),
 -- declare foreign key
-	FOREIGN KEY(itemsProfileId) REFERENCES profile(profileId)
+		FOREIGN (itemProfileId) REFERENCES profile(profileId)
 
 );
