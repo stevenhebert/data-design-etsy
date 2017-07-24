@@ -1,6 +1,6 @@
 -- creating new userProfiles --
-INSERT INTO profile (profileName, profileEmail, profileHash, profileSalt, ProfileJoinDate)
-VALUES('abc', 'abc@mail.com', 'pwh', 'pws', 'NOW()');
+INSERT INTO profile (profileName, profileEmail, profileHash, profileSalt, profileJoinDate)
+VALUES('abc', 'abc@mail.com', 'pwh', 'pws', NOW());
 
 INSERT INTO profile (profileName, profileEmail, profileHash, profileSalt, ProfileJoinDate)
 VALUES('def', 'def@mail.com', 'pwh', 'pws', 'NOW()');
