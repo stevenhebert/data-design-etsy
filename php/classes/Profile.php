@@ -1,18 +1,18 @@
 <?php
 
 /**
- * php practice coding a simplified etsy user profile
+ * an exercise to practice php and doc block by coding a simplified etsy user profile
  *
- * this demonstrates one method you could use to record and retrieve end user data into an online-retailing database
- * the hierarchy could be extended or modified for different platforms/realism
+ * demonstrates a method one could use to record and retrieve end-users profile data into an e-commerce database
+ * this is a bit overly simplified but could easily be extended/modified for different platforms
  *
  * @author Steven Hebert <shebert2@cnm.edu>
  * @version 1.0.1
  **/
 
-class Profile {
+class profile {
 	/**
-	 * this is the profile id, here profile id is assigned as the primary key
+	 * this is the profile id, here we assign the users profile identification number as the primary key
 	 */
 	private $profileId;
 
@@ -39,9 +39,27 @@ class Profile {
 	/**
 	 * the date that the user registered their account
 	 */
-	private $profileJoinDate
+	private $profileJoinDate;
 
+
+	/**
+	 * accessor method for profileId
+	 *
+	 * @return int value of profileId
+	 */
+	public function getProfileId() {
+		return ($this->profileId);
+	}
+
+	/**
+	 * mutator method for profileId
+	 *
+	 * @param int $newProfileId new value of profileId
+	 * @throws UnexpectedValueException if $newProfileId is not an integer
+	 */
 
 
 
 }
+?>
+
