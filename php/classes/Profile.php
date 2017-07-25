@@ -163,58 +163,35 @@ class profile {
 
 
 	/**
-	 * accessor method for
+	 * accessor method for salt
 	 *
-	 * @return int value of
+	 * @return string representation of salty hexadecimal
 	 */
-	public function getProfileId() {
-		return ($this->profileId);
+	public function getSalt(): string {
+		return $this->salt;
 	}
 
 	/**
-	 * mutator method for
+	 * mutator method for salt
 	 *
-	 * @param int $newProfileId new value of
-	 * @throws UnexpectedValueException if $newProfileId is not an integer
+	 * @param string $newSalt
+	 * @throws \InvalidArgumentException if the salt is not secure
+	 * @throws \RangeException if the salt is not 64 characters
+	 * @throws \TypeError if profile salt is not a string
 	 */
-	public function setProfileId($newProfileId) {
-		//verify the profileId is a valid
-		newProfileId = filter_var($newProfileId, FILTER_VALIDATE_INT);
-		if($newprofileId === false) {
-			throw(new UnexpectedValueException("profileId is not a valid integer"));
+	public function setSalt(string $newSalt): void {
+		//enforce that the salt is properly salty
+		$newSalt = trim($newSalt);
+		$newSalt = strtolower($newSalt);
+
+		//needs precisely 64 salts
+		if(strlen($newSalt) !== 64) {
+			throw(new \RangeException("profile salt must be 128 characters");
 		}
 
-		//convert and store the profileId
-		$this->profileId = intval($newProfileId);
+		//preserve the salt
+		$this->salt = $newSalt;
 	}
-
-
-	/**
-	 * accessor method for
-	 *
-	 * @return int value of
-	 */
-	public function getProfileId() {
-		return ($this->profileId);
-	}
-
-	/**
-	 * mutator method for
-	 *
-	 * @param int $newProfileId new value of profileId
-	 * @throws UnexpectedValueException if $newProfileId is not an integer
-	 */
-	public function setProfileId($newProfileId) {
-		//verify the profileId is a valid
-		newProfileId = filter_var($newProfileId, FILTER_VALIDATE_INT);
-		if($newprofileId === false) {
-			throw(new UnexpectedValueException("profileId is not a valid integer"));
-		}
-
-		//convert and store the profileId
-		$this->profileId = intval($newProfileId);
-	}
-
 
 }
 ?>
