@@ -57,7 +57,15 @@ class profile {
 	 * @param int $newProfileId new value of profileId
 	 * @throws UnexpectedValueException if $newProfileId is not an integer
 	 */
+	public function setProfileId($newProfileId) {
+		newProfileId = filter_var($newProfileId, FILTER_VALIDATE_INT);
+		if($newprofileId === false) {
+			throw(new UnexpectedValueException("profileId is not a valid integer"));
+		}
 
+		//convert and store the profileId
+		$this->profileId = intval($newProfileId);
+	}
 
 
 }
