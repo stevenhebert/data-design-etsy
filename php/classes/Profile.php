@@ -14,6 +14,34 @@ class Profile {
 	/**
 	 * this is the profile id, here profile id is assigned as the primary key
 	 */
-	private profileId
+	private $profileId;
+
+	/**
+	 * this is the users given name
+	 */
+	private $profileName;
+
+	/**
+	 * this is the users email
+	 */
+	private $profileEmail;
+
+	/**
+	 * this is the users password hash
+	 */
+	private $profileHash;
+
+	/**
+	 * this is the users password salt
+	 */
+	private $profileSalt;
+
+	/**
+	 * the date that the user registered their account
+	 */
+	private $profileJoinDate
+
+
+
 
 }
