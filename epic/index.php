@@ -88,7 +88,7 @@
 			<ul>storeItems
 				<li>price</li>
 				<li>itemDescription</li>
-				<li>tags</li>
+				<li>itemName</li>
 				<li>itemId</li>
 				<li>itemProfileId(foreignKey)</li>
 			</ul>
