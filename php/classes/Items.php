@@ -10,7 +10,7 @@
  * @version 1.0.1
  **/
 
-class items {
+class Items {
 	/**
 	 * this is the itemId, here we assign the items identification number as the items-table primary key
 	 */

@@ -79,9 +79,9 @@
 			<ul>userProfile
 				<li>name</li>
 				<li>email</li>
+				<li>joinDate</li>
 				<li>hash(for password)</li>
 				<li>salt(for password)</li>
-				<li>joinDate</li>
 				<li>profileId(primaryKey)</li>
 			</ul>
 

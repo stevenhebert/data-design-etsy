@@ -11,7 +11,7 @@ namespace Edu\Cnm\EtsyDataDesign;
  * @author Steven Hebert <shebert2@cnm.edu>
  * @version 1.0.1
  **/
-class profile implements \JsonSerializable {
+class Profile implements \jsonSerializable {
 	/**
 	 * this is the profile id, here is assigned the users profile identification number
 	 * this is the primary key
@@ -66,7 +66,7 @@ class profile implements \JsonSerializable {
 	 * @throws \Exception if some other exception occurs
 	 */
 	public function __contructor(?string $newName, ?string $newEmail, ?string $newJoinDate, ?string $newHash,
-										  ?string $newsalt, ?int $newProfileId) {
+										  ?string $newSalt, ?int $newProfileId) {
 		try {
 			$this->setName($newName);
 			$this->setEmail($newEmail);
@@ -74,7 +74,7 @@ class profile implements \JsonSerializable {
 			$this->setHash($newHash);
 			$this->setSalt($newSalt);
 			$this->setProfileId($newProfileId);
-		} catch(\InvalidArgumentException |\RangeException |\TypeError |\Exception) {
+		} catch(\InvalidArgumentException |\RangeException |\TypeError $exception) {
 //determine what exception type was thrown
 			$exceptionType = get_class($exception);
 			throw(new $exceptionType($exception->getMessage(), 0, $exception));
@@ -97,7 +97,7 @@ class profile implements \JsonSerializable {
 	 * @param string $newName new value of name
 	 * @throws \UnexpectedValueException if $newName is not a string
 	 **/
-	public function setProfileName(string $newName) : {
+	public function setName(string $newName): void {
 		$newName = filter_var($newName, FILTER_SANITIZE_STRING);
 		if($newName === false) {
 			throw(new \UnexpectedValueException("name invalid consider new user"));
@@ -161,7 +161,7 @@ class profile implements \JsonSerializable {
 	 **/
 	public function setJoinDate($newJoinDate = null): void {
 //if date is null will use current date and time
-		if($newJoinDate ==== null) {
+		if($newJoinDate === null) {
 			$this->joinDate = new \DateTime();
 			return;
 		}
@@ -198,8 +198,8 @@ class profile implements \JsonSerializable {
 //verify the Hash is properly formatted
 		$newHash = trim($newHash);
 		$newHash = strtolower($newHash);
-		if(empty($newprofileId === true) {
-			throw(new \UnexpectedValueException("profile password empty or not secure");
+		if(empty($newHash === true) {
+			throw(new \UnexpectedValueException("profile password empty or not secure"));
 		}
 
 //enforce that the hash is a string representation of a hexadecimal
@@ -264,13 +264,13 @@ class profile implements \JsonSerializable {
 	 * @throws \UnexpectedValueException if $newProfileId is not an integer
 	 **/
 	public function setProfileId(?int $newProfileId): void {
-		if($newprofileId === null) {
+		if($newProfileId === null) {
 			$this->profileId = null;
 			return;
 		}
 
 //verify profileId is positive
-		if($newprofileId <= 0) {
+		if($newProfileId <= 0) {
 			throw(new \RangeException("profileId is not positive"));
 		}
 
@@ -279,6 +279,16 @@ class profile implements \JsonSerializable {
 	}
 
 
+	/**
+	 * Specify data which should be serialized to JSON
+	 * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
+	 * @return mixed data which can be serialized by <b>json_encode</b>,
+	 * which is a value of any type other than a resource.
+	 * @since 5.4.0
+	 */
+	function jsonSerialize() {
+		// TODO: Implement jsonSerialize() method.
+	}
 }
 
 ?>
