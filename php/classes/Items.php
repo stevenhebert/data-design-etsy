@@ -74,7 +74,7 @@ function setItemId(?int $newItemId): void {
 /**
  * mutator method for itemProfileId
  *
- * @param int $newitemProfileId new value of itemProfileId
+ * @param int $newItemProfileId new value of itemProfileId
  * @throws \UnexpectedValueException if $newItemProfileId is not an integer
  **/
 public
@@ -101,11 +101,27 @@ function setItemProfileId(?int $newItemProfileId): void {
  * @praram string $newItemName
  * @throws \UnexpectedValueException if $newItemName is not a string
  */
-public function setItemName(string $newItemName) {
-	$newItemName = filter_var($newItemName, FILTER_VALIDATE_STRING));
-	if($newItemName === false) {
-
+	public function getItemName(): string {if($newItemName === false) {
+		return $this->itemName;
 	}
+
+	/**
+	 * mutator method for iemName
+	 *
+	 * @param string $newItemName new value of itemName
+	 * @throws \UnexpectedValueException if $newItemName is not a string
+	 **/
+	public function setItemName(string $newName) {
+		$newName = filter_var$newName, FILTER_SANITIZE_STRING);
+		if $newItemName === false) {
+			throw(new \UnexpectedValueException("itemName invalid"));
+		}
+	}
+
+	$this->itemName = $newItemName;
+
+
+
 
 }
 ?>
