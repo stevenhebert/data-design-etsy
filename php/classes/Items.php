@@ -94,6 +94,19 @@ function setItemProfileId(?int $newItemProfileId): void {
 }
 
 
+
+/**
+ * accessor method for itemName
+ *
+ * @praram string $newItemName
+ * @throws \UnexpectedValueException if $newItemName is not a string
+ */
+public function setItemName(string $newItemName) {
+	$newItemName = filter_var($newItemName, FILTER_VALIDATE_STRING));
+	if($newItemName === false) {
+
+	}
+
 }
 ?>
 
