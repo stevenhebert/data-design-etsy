@@ -14,7 +14,7 @@ class Items {
 	/**
 	 * this is the itemId, here we assign the items identification number as the items-table primary key
 	 */
-	private $itemId;
+	private  $itemId;
 
 	/**
 	 * this forms the basis for the items foreign key, will ultimately be used to keep track of whose items are whose
@@ -35,7 +35,7 @@ class Items {
 	 * description of the users item
 	 */
 	private $itemDes;
-}
+
 
 
 /**
@@ -43,8 +43,7 @@ class Items {
  *
  * @return int value of itemId
  **/
-public
-function itemId(): int {
+public function itemId(): int {
 	return $this->itemId;
 }
 
@@ -54,10 +53,9 @@ function itemId(): int {
  * @param int $newItemId new value of itemId
  * @throws \UnexpectedValueException if $newItemId is not an integer
  **/
-public
-function setItemId(?int $newItemId): void {
+public function setItemId(?int $newItemId): void {
 	if($newItemId === null) {
-		$this->itemeId = null;
+		$this->itemId = null;
 		return;
 	}
 
@@ -77,8 +75,7 @@ function setItemId(?int $newItemId): void {
  * @param int $newItemProfileId new value of itemProfileId
  * @throws \UnexpectedValueException if $newItemProfileId is not an integer
  **/
-public
-function setItemProfileId(?int $newItemProfileId): void {
+public function setItemProfileId(?int $newItemProfileId): void {
 	if($newItemProfileId === null) {
 		$this->itemProfileId = null;
 		return;
@@ -101,24 +98,24 @@ function setItemProfileId(?int $newItemProfileId): void {
  * @praram string $newItemName
  * @throws \UnexpectedValueException if $newItemName is not a string
  */
-	public function getItemName(): string {if($newItemName === false) {
+	public function getItemName(): string {
 		return $this->itemName;
 	}
 
 	/**
-	 * mutator method for iemName
+	 * mutator method for itemName
 	 *
 	 * @param string $newItemName new value of itemName
 	 * @throws \UnexpectedValueException if $newItemName is not a string
 	 **/
-	public function setItemName(string $newName) {
-		$newName = filter_var$newName, FILTER_SANITIZE_STRING);
-		if $newItemName === false) {
+	public function setItemName(string $newItemName): void {
+		$newItemName = filter_var($newItemName, FILTER_SANITIZE_STRING);
+		if($newItemName === false) {
 			throw(new \UnexpectedValueException("itemName invalid"));
 		}
-	}
 
-	$this->itemName = $newItemName;
+		$this->itemName = $newItemName;
+	}
 
 
 	/**
@@ -128,10 +125,10 @@ function setItemProfileId(?int $newItemProfileId): void {
 	 * @throws \UnexpectedValueException
 	 * @throws \InvalidArgumentException
 	 * @throws \RangeException
-	 **/
+
 	public function setItemPrice(?float $newItemPrice): void {
 		$newItemPrice = filter_var($newItemPrice, FILTER_VALIDATE_FLOAT);
-		if($newItemPrice === false);
+		if($newItemPrice === false) {
 			throw(new (\UnexpectedValueException("item price invalid"));
 	}
 
@@ -147,7 +144,7 @@ function setItemProfileId(?int $newItemProfileId): void {
 		}
 
 	}
-
+	 **/
 
 }
 ?>
