@@ -121,6 +121,32 @@ function setItemProfileId(?int $newItemProfileId): void {
 	$this->itemName = $newItemName;
 
 
+	/**
+	 * mutator method for itemPrice
+	 *
+	 * @param float $newItemPrice
+	 * @throws \UnexpectedValueException
+	 * @throws \InvalidArgumentException
+	 * @throws \RangeException
+	 **/
+	public function setItemPrice(?float $newItemPrice): void {
+		$newItemPrice = filter_var($newItemPrice, FILTER_VALIDATE_FLOAT);
+		if($newItemPrice === false);
+			throw(new (\UnexpectedValueException("item price invalid"));
+	}
+
+		// store item needs to have a price, price can be $0 not null
+		if($newItemPrice === null): void {
+			$this->itemPrice = null;
+			return;
+
+		if( )
+			throw (new (\))
+
+
+		}
+
+	}
 
 
 }
