@@ -198,18 +198,18 @@ class Profile implements \jsonSerializable {
 //verify the Hash is properly formatted
 		$newHash = trim($newHash);
 		$newHash = strtolower($newHash);
-		if(empty($newHash === true) {
+		if(empty($newHash === true)) {
 			throw(new \UnexpectedValueException("profile password empty or not secure"));
 		}
 
 //enforce that the hash is a string representation of a hexadecimal
 		if(!ctype_xdigit($newHash)) {
-			throw(new\InvalidArgumentException("profile password empty or not secure");
+			throw(new\InvalidArgumentException("profile password empty or not secure"));
 		}
 
 //enforce that the hash is exaclty 128 characters
 		if(strlen($newHash) !== 128) {
-			throw(new \RangeException("profile password empty or not secure");
+			throw(new \RangeException("profile password empty or not secure"));
 		}
 //store hash
 		$this->hash = $newHash;
@@ -240,7 +240,7 @@ class Profile implements \jsonSerializable {
 
 //needs precisely 64 salts
 		if(strlen($newSalt) !== 64) {
-			throw(new \RangeException("profile salt must be 128 characters");
+			throw(new \RangeException("profile salt must be 128 characters"));
 		}
 
 //preserve the salt
