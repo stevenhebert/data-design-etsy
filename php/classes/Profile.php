@@ -291,4 +291,81 @@ class Profile implements \jsonSerializable {
 	}
 }
 
+
+/**
+ * INSERTing, DELETing, UPDATing from PHP to SQL by PDO
+ *
+ *
+ *
+ * Starting with insert, insert Profile into SQL
+ * @param \PDO $pdo PDO connection object
+ * @throws \PDOException when mySQL related errors occur
+ * @throws \TypeError if $pdo is not a PDO connection object
+ **/
+
+public function insert(\PDO $pdo): void {
+	// don't want overwrite preexisting profile
+	if($this->profileId !== null) {
+		throw(new \PDOException("not a new profile"));
+	}
+
+	// create query template
+	$query = "INSERT INTO profile (profileName, profileEmail, profileHash, profileSalt, profileJoinDate)
+									VALUES('abc', 'abc@mail.com', 'pwh', 'pws', NOW())";
+	$statement = $pdo->prepare($query);
+
+	// bind member vars to the place holders in the template
+	$parameters = ["profileName" => $this->name, "profileEmail" => $this->.email, "profileHash" => $this->hash,
+						"profileSalt" => $this->salt, "profileJoinDate" => $this->joinDate];
+	$statement = execute($parameters);
+
+	//update the null profileId with what mySQL just gave us???
+	$this->profileId = intval($pdo->lastInsertId());
+}
+
+/**
+ * deletes this Profile from mySQL
+ *
+ * @param \PDO $pdo PDO connection object
+ * @throws \PDOException when mySQL related errors occur
+ * @throws \TypeError if $pdo is not a PDO connection object
+ **/
+public function delete(\PDO $pdo): void {
+// cant't delete a profile that does not exist
+if($this->profileId === null) {
+	throw(new \PDOException("unable to delete nothing/does not compute"));
+}
+
+// create query template
+$query = "DELETE FROM profile WHERE profileId = :profileId";
+$statement = $pdo->prepare($query);
+
+// bind the member variables to the place holders in the template
+$parameters = ["profileId" => $this->profileId];
+$statement->execute($parameters);
+
+}
+
+/**
+ * updates this Profile from mySQL
+ *
+ * @param \PDO $pdo PDO connection object
+ * @throws \PDOException when mySQL related errors occur
+ * @throws \TypeError if $pdo is not a PDO connection object
+ **/
+public function update(\PDO $pdo): void {
+	// enforce the profileId is not null (i.e., don't update a profile that does not exist)
+	if($this->profileId === null) {
+		throw(new \PDOException("unable to delete a profile that does not exist"));
+	}
+
+	// create query template
+	$query = "UPDATE profile SET profileName = :name, profileEmail = :email, profileHash = :hash, profileSalt = :salt, profileJoinDate = :joinDate, WHERE profileId = :profileId";
+	$statement = $pdo->prepare($query);
+
+	// bind member vars to the place holders in the template
+	$parameters = ["profileName" => $this->name, "profileEmail" => $this->.email, "profileHash" => $this->hash,
+						"profileSalt" => $this->salt, "profileJoinDate" => $this->joinDate];
+	$statement = execute($parameters);
+}
 ?>
