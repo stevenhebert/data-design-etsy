@@ -13,91 +13,100 @@
 class Items {
 	/**
 	 * this is the itemId, here we assign the items identification number as the items-table primary key
-	 */
-	private  $itemId;
+	 **/
+	private $itemId;
 
 	/**
 	 * this forms the basis for the items foreign key, will ultimately be used to keep track of whose items are whose
-	 */
+	 **/
 	private $itemProfileId;
 
 	/**
 	 * name of the users item: what is it
-	 */
+	 **/
 	private $itemName;
 
 	/**
 	 * price of the users item
-	 */
+	 **/
 	private $itemPrice;
 
 	/**
 	 * description of the users item
-	 */
+	 **/
 	private $itemDes;
 
 
 
-/**
- * accessor method for itemId
- *
- * @return int value of itemId
- **/
-public function itemId(): int {
-	return $this->itemId;
-}
-
-/**
- * mutator method for itemId
- *
- * @param int $newItemId new value of itemId
- * @throws \UnexpectedValueException if $newItemId is not an integer
- **/
-public function setItemId(?int $newItemId): void {
-	if($newItemId === null) {
-		$this->itemId = null;
-		return;
+	/**
+	 * accessor method for itemId
+	 *
+	 * @return int value of itemId
+	 **/
+	public function itemId(): int {
+		return $this->itemId;
 	}
 
-	//verify itemId is positive
-	if($newItemId <= 0) {
-		throw(new \RangeException("itemId is not positive"));
+	/**
+	 * mutator method for itemId
+	 *
+	 * @param int $newItemId new value of itemId
+	 * @throws \UnexpectedValueException if $newItemId is not an integer
+	 **/
+	public function setItemId(?int $newItemId): void {
+		if($newItemId === null) {
+			$this->itemId = null;
+			return;
+		}
+
+		//verify itemId is positive
+		if($newItemId <= 0) {
+			throw(new \RangeException("itemId is not positive"));
+		}
+
+		//convert and store the itemId (saving work)
+		$this->itemId = intval($newItemId);
 	}
 
-	//convert and store the itemId (saving work)
-	$this->itemId = intval($newItemId);
-}
 
 
-/**
- * mutator method for itemProfileId
- *
- * @param int $newItemProfileId new value of itemProfileId
- * @throws \UnexpectedValueException if $newItemProfileId is not an integer
- **/
-public function setItemProfileId(?int $newItemProfileId): void {
-	if($newItemProfileId === null) {
-		$this->itemProfileId = null;
-		return;
+	/**
+	 * accessor method for itemProfileId
+	 *
+	 **/
+	public function getItemProfileId(): int {
+		return $this->itemProfileId;
 	}
 
-	//verify itemProfileId is positive
-	if($newItemProfileId <= 0) {
-		throw(new \RangeException("itemProfileId is not positive"));
+	/**
+	 * mutator method for itemProfileId
+	 *
+	 * @param int $newItemProfileId new value of itemProfileId
+	 * @throws \UnexpectedValueException if $newItemProfileId is not an integer
+	 **/
+	public function setItemProfileId(?int $newItemProfileId): void {
+		if($newItemProfileId === null) {
+			$this->itemProfileId = null;
+			return;
+		}
+
+		//verify itemProfileId is positive
+		if($newItemProfileId <= 0) {
+			throw(new \RangeException("itemProfileId is not positive"));
+		}
+
+		//convert and store the itemProfileId (saving work)
+		$this->itemProfileId = intval($newItemProfileId);
 	}
 
-	//convert and store the itemProfileId (saving work)
-	$this->itemProfileId = intval($newItemProfileId);
-}
 
 
-
-/**
- * accessor method for itemName
- *
- * @praram string $newItemName
- * @throws \UnexpectedValueException if $newItemName is not a string
- */
+	/**
+	 * accessor method for itemName
+	 *
+	 * @praram string $newItemName
+	 * @throws \UnexpectedValueException if $newItemName is not a string
+	 **/
 	public function getItemName(): string {
 		return $this->itemName;
 	}
@@ -118,34 +127,64 @@ public function setItemProfileId(?int $newItemProfileId): void {
 	}
 
 
+
+	/**
+	 * accessor method for itemPrice
+	 *
+	 * @param float $newItemPrice
+	 * @throws \TypeError if item price is not a float
+	 * @throws \RangeException price of item must be positive
+	 **/
+
+
+
 	/**
 	 * mutator method for itemPrice
 	 *
 	 * @param float $newItemPrice
-	 * @throws \UnexpectedValueException
-	 * @throws \InvalidArgumentException
-	 * @throws \RangeException
-
-	public function setItemPrice(?float $newItemPrice): void {
+	 * @throws \TypeError if item price is not a float
+	 * @throws \RangeException price of item must be positive
+	 **/
+	public function setItemPrice(float $newItemPrice): void {
+		//checks that price type is a float
 		$newItemPrice = filter_var($newItemPrice, FILTER_VALIDATE_FLOAT);
-		if($newItemPrice === false) {
-			throw(new (\UnexpectedValueException("item price invalid"));
-	}
-
-		// store item needs to have a price, price can be $0 not null
-		if($newItemPrice === null): void {
-			$this->itemPrice = null;
-			return;
-
-		if( )
-			throw (new (\))
-
-
+		//checks that price is greater than or equal to free
+		if($newItemPrice < 0) {
+			throw(new \RangeException("item price must be above $0.00"));
 		}
 
+		//this converts and saves the items price
+		$this->itemPrice = $newItemPrice;
 	}
+
+
+
+	/**
+	 * accessor method for itemDes
+	 *
+	 * @praram string $newItemDes
+	 * @throws \UnexpectedValueException if $newItemDes is not a string
 	 **/
+	public function getItemDes(): string {
+		return $this->itemDes;
+	}
+
+	/**
+	 * mutator method for itemDes
+	 *
+	 * @param string $newItemDes new value of itemDes
+	 * @throws \UnexpectedValueException if $newItemDes is not a string
+	 **/
+	public function setItemDes(string $newItemDes): void {
+		$newItemDes = filter_var($newItemDes, FILTER_SANITIZE_STRING);
+		if($newItemDes === false) {
+			throw(new \UnexpectedValueException("item description is invalid"));
+		}
+
+		$this->itemDes = $newItemDes;
+	}
 
 }
+
 ?>
 
