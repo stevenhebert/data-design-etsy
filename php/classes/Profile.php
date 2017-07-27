@@ -195,9 +195,11 @@ class Profile implements \jsonSerializable {
 	 * @throws \TypeError if profile hash is not a string
 	 **/
 	public function setHash(string $newHash): void {
-//verify the Hash is properly formatted
+//verify the Hash is properly formatted- no whitespace, is lowercase
 		$newHash = trim($newHash);
 		$newHash = strtolower($newHash);
+
+//checks that hash is not empty
 		if(empty($newHash === true)) {
 			throw(new \UnexpectedValueException("profile password empty or not secure"));
 		}
@@ -207,7 +209,7 @@ class Profile implements \jsonSerializable {
 			throw(new\InvalidArgumentException("profile password empty or not secure"));
 		}
 
-//enforce that the hash is exaclty 128 characters
+//enforce that the hash is exactly 128 characters
 		if(strlen($newHash) !== 128) {
 			throw(new \RangeException("profile password empty or not secure"));
 		}
@@ -279,18 +281,6 @@ class Profile implements \jsonSerializable {
 	}
 
 
-	/**
-	 * Specify data which should be serialized to JSON
-	 * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
-	 * @return mixed data which can be serialized by <b>json_encode</b>,
-	 * which is a value of any type other than a resource.
-	 * @since 5.4.0
-	 */
-	function jsonSerialize() {
-		// TODO: Implement jsonSerialize() method.
-	}
-}
-
 
 /**
  * INSERTing, DELETing, UPDATing from PHP to SQL by PDO
@@ -303,7 +293,8 @@ class Profile implements \jsonSerializable {
  * @throws \TypeError if $pdo is not a PDO connection object
  **/
 
-public function insert(\PDO $pdo): void {
+public
+function insert(\PDO $pdo): void {
 	// don't want overwrite preexisting profile
 	if($this->profileId !== null) {
 		throw(new \PDOException("not a new profile"));
@@ -316,7 +307,7 @@ public function insert(\PDO $pdo): void {
 
 	// bind member vars to the place holders in the template
 	$parameters = ["profileName" => $this->name, "profileEmail" => $this->.email, "profileHash" => $this->hash,
-						"profileSalt" => $this->salt, "profileJoinDate" => $this->joinDate];
+		"profileSalt" => $this->salt, "profileJoinDate" => $this->joinDate];
 	$statement = execute($parameters);
 
 	//update the null profileId with what mySQL just gave us???
@@ -330,19 +321,21 @@ public function insert(\PDO $pdo): void {
  * @throws \PDOException when mySQL related errors occur
  * @throws \TypeError if $pdo is not a PDO connection object
  **/
-public function delete(\PDO $pdo): void {
+public
+function delete(\PDO $pdo): void {
 // cant't delete a profile that does not exist
-if($this->profileId === null) {
-	throw(new \PDOException("unable to delete nothing/does not compute"));
-}
+	if($this->profileId === null) {
+		throw(new \PDOException("unable to delete nothing/does not compute"));
+	}
 
 // create query template
-$query = "DELETE FROM profile WHERE profileId = :profileId";
-$statement = $pdo->prepare($query);
+	$query = "DELETE FROM profile WHERE profileId = :profileId";
+	$statement = $pdo->prepare($query);
 
 // bind the member variables to the place holders in the template
-$parameters = ["profileId" => $this->profileId];
-$statement->execute($parameters);
+
+	$parameters = ["profileId" => $this->profileId];
+	$statement->execute($parameters);
 
 }
 
@@ -353,19 +346,33 @@ $statement->execute($parameters);
  * @throws \PDOException when mySQL related errors occur
  * @throws \TypeError if $pdo is not a PDO connection object
  **/
-public function update(\PDO $pdo): void {
+public
+function update(\PDO $pdo): void {
 	// enforce the profileId is not null (i.e., don't update a profile that does not exist)
 	if($this->profileId === null) {
 		throw(new \PDOException("unable to delete a profile that does not exist"));
 	}
 
 	// create query template
-	$query = "UPDATE profile SET profileName = :name, profileEmail = :email, profileHash = :hash, profileSalt = :salt, profileJoinDate = :joinDate, WHERE profileId = :profileId";
+	$query = "UPDATE profile SET profileName = :name, profileEmail = :email, profileHash = :hash, profileSalt = :salt,
+ 				profileJoinDate = :joinDate, WHERE profileId = :profileId";
 	$statement = $pdo->prepare($query);
 
 	// bind member vars to the place holders in the template
 	$parameters = ["profileName" => $this->name, "profileEmail" => $this->.email, "profileHash" => $this->hash,
-						"profileSalt" => $this->salt, "profileJoinDate" => $this->joinDate];
+		"profileSalt" => $this->salt, "profileJoinDate" => $this->joinDate];
 	$statement = execute($parameters);
 }
+
 ?>
+
+/**
+* Specify data which should be serialized to JSON
+* @link http://php.net/manual/en/jsonserializable.jsonserialize.php
+* @return mixed data which can be serialized by <b>json_encode</b>,
+* which is a value of any type other than a resource.
+* @since 5.4.0
+**/
+function jsonSerialize() {
+// TODO: Implement jsonSerialize() method
+// TODO: Add profile activation token
