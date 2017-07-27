@@ -43,7 +43,7 @@ class Items {
 	 *
 	 * @return int value of itemId
 	 **/
-	public function itemId(): int {
+	public function getitemId(): int {
 		return $this->itemId;
 	}
 
@@ -73,6 +73,7 @@ class Items {
 	/**
 	 * accessor method for itemProfileId
 	 *
+	 * @return integer value for profileId
 	 **/
 	public function getItemProfileId(): int {
 		return $this->itemProfileId;
@@ -104,8 +105,7 @@ class Items {
 	/**
 	 * accessor method for itemName
 	 *
-	 * @praram string $newItemName
-	 * @throws \UnexpectedValueException if $newItemName is not a string
+	 * @return string value for the name of the item
 	 **/
 	public function getItemName(): string {
 		return $this->itemName;
@@ -131,12 +131,11 @@ class Items {
 	/**
 	 * accessor method for itemPrice
 	 *
-	 * @param float $newItemPrice
-	 * @throws \TypeError if item price is not a float
-	 * @throws \RangeException price of item must be positive
+	 * @return float value for items price
 	 **/
-
-
+	public function getItemPrice(): float {
+		return($this->itemPrice);
+	}
 
 	/**
 	 * mutator method for itemPrice
@@ -146,12 +145,13 @@ class Items {
 	 * @throws \RangeException price of item must be positive
 	 **/
 	public function setItemPrice(float $newItemPrice): void {
-		//checks that price type is a float
-		$newItemPrice = filter_var($newItemPrice, FILTER_VALIDATE_FLOAT);
 		//checks that price is greater than or equal to free
 		if($newItemPrice < 0) {
 			throw(new \RangeException("item price must be above $0.00"));
 		}
+
+		//checks that price type is a float
+		$newItemPrice = filter_var($newItemPrice, FILTER_VALIDATE_FLOAT);
 
 		//this converts and saves the items price
 		$this->itemPrice = $newItemPrice;
@@ -162,8 +162,7 @@ class Items {
 	/**
 	 * accessor method for itemDes
 	 *
-	 * @praram string $newItemDes
-	 * @throws \UnexpectedValueException if $newItemDes is not a string
+	 * @return string value for description of the item
 	 **/
 	public function getItemDes(): string {
 		return $this->itemDes;
@@ -185,6 +184,5 @@ class Items {
 	}
 
 }
-
 ?>
 
