@@ -1,6 +1,7 @@
 <?php
 
 namespace Edu\Cnm\EtsyDataDesign;
+require_once("autoload.php");
 
 /**
  * an exercise to practice php and doc block by coding using simplified etsy user profile
@@ -12,6 +13,11 @@ namespace Edu\Cnm\EtsyDataDesign;
  * @version 1.0.1
  **/
 class Profile implements \jsonSerializable {
+	use ValidateDate;
+
+
+
+}
 	/**
 	 * this is the profile id, here is assigned the users profile identification number
 	 * this is the primary key
@@ -363,6 +369,20 @@ function update(\PDO $pdo): void {
 		"profileSalt" => $this->salt, "profileJoinDate" => $this->joinDate];
 	$statement = execute($parameters);
 }
+
+
+/**
+ * formats the state variables for JSON serialization
+ *
+ * @return array resulting state variables to serialize
+ **/
+public function jsonSerialize() {
+	$fields = get_object_vars($this);
+	//format the date so that the front end can consume it
+	$fields["joinDate"] = round(floatval($this->joinDate->format("U.u")) * 1000);
+	return ($fields);
+}
+
 
 ?>
 
